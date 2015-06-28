@@ -1,0 +1,12 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="true"><shape>
+            <gradient android:endColor="@color/mainColor" android:startColor="@color/mainColor" />
+            <corners android:radius="5dip" />
+        </shape></item>
+    <item android:state_enabled="false"><shape>
+            <gradient android:endColor="#EEEEEE" android:startColor="#DDDDDD" />
+            <corners android:radius="15dip" />
+        </shape></item>
+
+</selector>

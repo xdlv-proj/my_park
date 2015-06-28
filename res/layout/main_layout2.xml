@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical"
+    android:background="#ffdddddd">
+
+    <include
+        android:id="@+id/include1"
+        layout="@layout/main_title" />
+
+    <TextView
+            android:id="@+id/create_order"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="拍照生成订单"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" 
+            android:drawableLeft="@drawable/takephoto"
+            android:paddingLeft="60dip"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:gravity="center"
+            android:background="#ffffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:background="#ffffffff"
+        android:layout_marginTop="15dip"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="总车位数"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="#FFFFFFFF"
+            android:background="#00bf71"
+            />
+
+        <EditText
+            android:id="@+id/allCount"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:hint="第一次必填"
+            android:gravity="center"
+            android:inputType="number" 
+            android:background="#ffffffff"
+            android:enabled="true">
+        </EditText>
+    </LinearLayout>
+
+</LinearLayout>

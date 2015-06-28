@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">parking</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="mobile_phone">手机号</string>
+    <string name="hint_phone">请输入手机号</string>
+    <string name="hint_validate">请输入验证码</string>
+    <string name="validate_code">验证码</string>
+    <string name="login">登    录</string>
+    <string name="new_order">新建订单</string>
+    <string name="fee_type">计费方式</string>
+    <string name="money_t">金&#x0020;&#x0020;&#x0020;&#x0020;额</string>
+    <string name="confirm">确 &#x0020;&#x0020;&#x0020;&#x0020;定</string>
+    <string name="bianhao">编号：</string>
+    <string name="all_orders">全部</string>
+    <string name="order_type_time">按次、天</string>
+    <string name="order_list_itme">按时</string>
+    <string name="price_ex">￥15</string>
+    <string name="time_ex">按时</string>
+    <string name="plate_ex">京A 209870\\n06 01 11:23</string>
+    <string name="park_already">己停车</string>
+    <string name="leaved">己离开</string>
+    <string name="park_time">停车时间：</string>
+    <string name="park_time_ex">03 : 04</string>
+    <string name="income">收   入：</string>
+    <string name="play_hint_ex">应收20元</string>
+    <string name="park_title_ex">停车 03：04 己离开</string>
+    <string name="get_validate_code">获取验证码</string>
+    <string name="get_validate_code_last">还剩下%d秒</string>
+    <string name="user_info">个人信息</string>
+    <string name="user_info_name">姓名：</string>
+    <string name="authroizedName">管理员认证</string>
+    <string name="user_name_ex">吕晓冬</string>
+    <string name="authroizedName_ex">北京市占道停车收费员</string>
+    <string name="id_card">身份证号</string>
+    <string name="id_card_ex">340321********4058</string>
+    <string name="bind_play_type">己绑定的收费方式：</string>
+    <string name="aliplay">支付宝</string>
+    <string name="wei_xing">微信</string>
+    <string name="bank_card">银行卡</string>
+    <string name="bank_card_ex">工行340321***4058</string>
+    <string name="total_order_income">今日订单收入：</string>
+    <string name="money_yuan_ex">20元</string>
+    <string name="last_month_income">上月停车收入：</string>
+    <string name="last_month_ex">18888.8元</string>
+    <string name="quite_login">退出登陆</string>
+
+</resources>

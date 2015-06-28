@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#00bf71" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="35dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:text="昨天收入" />
+
+    <TextView
+        android:id="@+id/yesterdaycash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="159.60"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="20dp"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/yesterdaycash"
+        android:layout_alignBottom="@+id/yesterdaycash"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
+        android:textSize="18dp"
+        android:text="元"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
