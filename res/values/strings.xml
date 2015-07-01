@@ -46,5 +46,8 @@
     <string name="last_month_income">上月停车收入：</string>
     <string name="last_month_ex">18888.8元</string>
     <string name="quite_login">退出登陆</string>
+    <string name="car_num">车牌号：</string>
+    <string name="today_all_count">今日己收入</string>
+    <string name="car_number_pre">"京A "</string>
 
 </resources>

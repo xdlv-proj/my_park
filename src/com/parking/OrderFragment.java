@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import com.parking.OrderListAdaptor.Filter;
 import com.parking.OrderListAdaptor.StatusListener;
 import com.xdlv.vistor.Proc;
 
-public class OrderFragment extends Fragment{
+public class OrderFragment extends AbstractFragment{
 
 	@ViewInject(R.id.order_list)
 	ListView orderList;
@@ -36,6 +35,14 @@ public class OrderFragment extends Fragment{
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		View view = super.onCreateView(inflater, container, savedInstanceState);
+		TaskProcess.getTodayOrder(getActivity(), this, R.layout.order_layout,
+				((MainActivity) getActivity()).currentUser.getMobilePhone());
+		return view;
+	}
+	
+	@Override
+	protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.order_layout, container, false);
 		ViewUtils.inject(this, view);
 
@@ -52,9 +59,6 @@ public class OrderFragment extends Fragment{
 			}
 		};
 		orderList.setAdapter(adaptor);
-
-		TaskProcess.getTodayOrder(getActivity(), this, R.layout.order_layout,
-				((MainActivity) getActivity()).currentUser.getMobilePhone());
 		return view;
 	}
 

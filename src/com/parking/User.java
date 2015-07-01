@@ -36,7 +36,8 @@ public class User implements Serializable {
 	
 	@Column(column="login")
 	private boolean login = false;
-	
+	@Column(column="lastLoginTime")
+	private long lastLoginTime;
 
 	public String getMobilePhone() {
 		return mobilePhone;
@@ -132,6 +133,14 @@ public class User implements Serializable {
 
 	public void setLogin(boolean login) {
 		this.login = login;
+	}
+
+	public long getLastLoginTime() {
+		return lastLoginTime;
+	}
+
+	public void setLastLoginTime(long lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 	
 }

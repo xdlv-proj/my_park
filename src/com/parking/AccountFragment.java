@@ -3,18 +3,18 @@ package com.parking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.xdlv.vistor.Proc;
 
-public class AccountFragment extends Fragment {
+public class AccountFragment extends AbstractFragment {
 
 	@ViewInject(R.id.user_name)
 	TextView userName;
@@ -33,22 +33,36 @@ public class AccountFragment extends Fragment {
 	@ViewInject(R.id.last_month_income)
 	TextView lastMonthIncome;
 
-	User user;
+	User currentUser;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		View view = super.onCreateView(inflater, container, savedInstanceState);
+		currentUser = ((MainActivity) getActivity()).currentUser;
+		TaskProcess.queryUserInfo(getActivity(),this,R.layout.accout_layout2,
+				((MainActivity) getActivity()).currentUser.getMobilePhone());
+		return view;
+	}
+	@Override
+	protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.accout_layout2, container, false);
 		ViewUtils.inject(this, view);
-		user = ((MainActivity) getActivity()).currentUser;
-		initValue();
 		return view;
+	}
+	@Proc({R.layout.accout_layout2, -R.layout.accout_layout2})
+	void procQueryUserInfo(Message msg){
+		if (msg.obj instanceof Throwable){
+			Toast.makeText(getActivity(), "获取用户信息失败", Toast.LENGTH_LONG).show();
+			return;
+		}
+		initValue((User)msg.obj);
 	}
 
 	@OnClick(R.id.quite_login)
 	public void quiteLogin(View view) {
-		user.setLogin(false);
-		TaskProcess.quiteLogin(getActivity(), this, R.id.quite_login, user);
+		currentUser.setLogin(false);
+		TaskProcess.quiteLogin(getActivity(), this, R.id.quite_login, currentUser);
 	}
 
 	@Proc(R.id.quite_login)
@@ -59,7 +73,7 @@ public class AccountFragment extends Fragment {
 		getActivity().finish();
 	}
 
-	void initValue() {
+	void initValue(User user) {
 		userName.setText(user.getUserName());
 		authroizedName.setText(user.getAuthorizedName());
 
@@ -67,11 +81,14 @@ public class AccountFragment extends Fragment {
 		alipay.setText(user.getAliplay());
 		weiXing.setText(user.getWeiXing());
 		bankCard.setText(mask(user.getBankCard(), 2, 6));
-		todayIncome.setText(user.getTotalForLastMonth() + "");
+		todayIncome.setText(user.getTotalForToday() + "");
 		lastMonthIncome.setText(user.getTotalForLastMonth() + "");
 	}
 
 	String mask(String content, int front, int last) {
+		if (content == null || content.length() < front + last){
+			return "";
+		}
 		StringBuffer sBuffer = new StringBuffer();
 		sBuffer.append(content, 0, front);
 		for (int i = 0; i < content.length() - front - last; i++) {

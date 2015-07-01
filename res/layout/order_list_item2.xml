@@ -13,7 +13,8 @@
         android:contentDescription="@null"
         android:src="@drawable/takephoto" 
         android:scaleType="fitXY"
-        android:alpha="0.4"/>
+        android:alpha="0.4"
+        android:layout_margin="1dip"/>
 
     <LinearLayout
         android:layout_width="0dip"
@@ -44,7 +45,7 @@
                 android:text="@string/time_ex" 
                 android:textSize="14sp"
                 android:layout_gravity="bottom"
-                android:layout_marginLeft="2dip"/>
+                android:layout_marginLeft="1dip"/>
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"

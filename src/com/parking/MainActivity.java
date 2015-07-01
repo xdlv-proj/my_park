@@ -22,6 +22,7 @@ public class MainActivity extends FragmentActivity implements OnTabChangeListene
 
 	private int mImageViewArray[] = { R.drawable.main_tabhost,
 			R.drawable.order_tabhost, R.drawable.account_tabhost };
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

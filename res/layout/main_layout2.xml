@@ -54,6 +54,19 @@
             android:background="#ffffffff"
             android:enabled="true">
         </EditText>
+        <Button
+            android:id="@+id/edit_all_count"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="修改"
+            android:background="@drawable/validate_code_button"
+            android:textColor="@drawable/validate_code_button"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:enabled="true"
+            />
     </LinearLayout>
 
 </LinearLayout>

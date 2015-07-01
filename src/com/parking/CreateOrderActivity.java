@@ -12,11 +12,13 @@ import com.xdlv.vistor.Proc;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -45,7 +47,12 @@ public class CreateOrderActivity extends Activity {
 	@ViewInject(R.id.play_money)
 	TextView playMoney;
 	
-	int max;
+	@ViewInject(R.id.car_num)
+	EditText carNumber;
+	@ViewInject(R.id.confirm_neworder)
+	Button createNewOrderButton;
+	
+	private LocationMg locationMg;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +62,8 @@ public class CreateOrderActivity extends Activity {
 		ViewUtils.inject(this);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				R.layout.spinner);
-		adapter.add("按次/每天");
 		adapter.add("按时/每小时");
+		adapter.add("按次/每天");
 		feeType.setAdapter(adapter);
 		
 		Intent intent = getIntent();
@@ -67,6 +74,13 @@ public class CreateOrderActivity extends Activity {
 		timeStamp.setText(new SimpleDateFormat("HH:mm", Locale.getDefault())
 				.format(new Date()));
 		TaskProcess.getCurrentOrderMax(this,R.layout.new_order, userInfo.getMobilePhone());
+		locationMg = new LocationMg(this);
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		locationMg.destory();
 	}
 	
 	@Proc({R.layout.new_order ,-R.layout.new_order})
@@ -75,7 +89,7 @@ public class CreateOrderActivity extends Activity {
 			Toast.makeText(this, "当前没有订单信息", Toast.LENGTH_LONG).show();
 			return;
 		}
-		max = ((Integer)message.obj) + 1;
+		int max = ((Integer)message.obj) + 1;
 		carNo.setText(String.format("%03d", max));
 		
 	}
@@ -90,16 +104,27 @@ public class CreateOrderActivity extends Activity {
 			Toast.makeText(this, "必须填写金额", Toast.LENGTH_LONG).show();
 			return;
 		}
+		if (carNumber.getText().toString().length() < 1){
+			Toast.makeText(this, "必须填写车牌号", Toast.LENGTH_LONG).show();
+			return;
+		}
+		createNewOrderButton.setEnabled(false);
 		UserOrder order = new UserOrder();
-		order.setFeeType(feeType.getSelectedItemPosition() + 1);
+		order.setFeeType(feeType.getSelectedItemPosition());
 		order.setPrice(Float.parseFloat(playMoney.getText().toString()));
 		order.setMobilePhone(userInfo.getMobilePhone());
 		order.setBitMap(bitMap);
-		order.setOrderId(max);
+		order.setPlateCode(carNumber.getText().toString());
+		Location location = locationMg.getLocation();
+		if (location != null){
+			order.setLng(location.getLongitude());
+			order.setLat(location.getLatitude());
+		}
 		TaskProcess.createOrder(this,this, R.id.confirm_neworder, order);
 	}
 	@Proc({R.id.confirm_neworder, -R.id.confirm_neworder})
 	void procNewOrder(Message msg){
+		createNewOrderButton.setEnabled(true);
 		if (msg.obj instanceof Throwable){
 			Toast.makeText(this, "订单生成失败", Toast.LENGTH_LONG).show();
 			return;

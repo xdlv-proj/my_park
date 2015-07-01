@@ -83,6 +83,8 @@ public class OrderListAdaptor extends ArrayAdapter<UserOrder> {
 		} else {
 			((TextView) view.findViewById(R.id.park_time)).setText(String
 					.format("Í£³µ%s  ¼ºÀë¿ª", order.getLTime(false)));
+			((TextView) view.findViewById(R.id.price)).setText(String.format(
+					"£¤%.1f", order.getRealPrice()));
 		}
 
 		return view;
