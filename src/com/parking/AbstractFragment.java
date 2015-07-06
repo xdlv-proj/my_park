@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 public abstract class AbstractFragment extends Fragment {
 
 	private View rootView = null;
+	protected boolean inflaterView = false;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (rootView == null){
 			rootView = createView(inflater, container, savedInstanceState);
+			inflaterView = true;
+		} else {
+			inflaterView = false;
 		}
 		ViewGroup viewGroup = (ViewGroup)rootView.getParent();
 		if (viewGroup != null){

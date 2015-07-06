@@ -81,8 +81,9 @@ public class OrderListAdaptor extends ArrayAdapter<UserOrder> {
 						}
 					});
 		} else {
+			long parkTime = (order.getLeavedTime() - order.getCreateTime()) / (1000 * 60);
 			((TextView) view.findViewById(R.id.park_time)).setText(String
-					.format("停车%s  己离开", order.getLTime(false)));
+					.format("停车%s  己离开", String.format(Locale.getDefault(),"%02d:%02d",parkTime/60,parkTime%60)));
 			((TextView) view.findViewById(R.id.price)).setText(String.format(
 					"￥%.1f", order.getRealPrice()));
 		}

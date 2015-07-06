@@ -4,11 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
-import com.xdlv.vistor.Proc;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,6 +19,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.parking.task.CreateOrderTask;
+import com.xdlv.async.task.Proc;
 
 public class CreateOrderActivity extends Activity {
 
@@ -53,6 +54,7 @@ public class CreateOrderActivity extends Activity {
 	Button createNewOrderButton;
 	
 	private LocationMg locationMg;
+	private CreateOrderTask task = new CreateOrderTask(this, this);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class CreateOrderActivity extends Activity {
 		carPic.setImageBitmap(bitMap);
 		timeStamp.setText(new SimpleDateFormat("HH:mm", Locale.getDefault())
 				.format(new Date()));
-		TaskProcess.getCurrentOrderMax(this,R.layout.new_order, userInfo.getMobilePhone());
+		task.request("getCurrentOrderMax", 0, R.layout.new_order, userInfo.getMobilePhone());
 		locationMg = new LocationMg(this);
 	}
 	
@@ -110,7 +112,7 @@ public class CreateOrderActivity extends Activity {
 		}
 		createNewOrderButton.setEnabled(false);
 		UserOrder order = new UserOrder();
-		order.setFeeType(feeType.getSelectedItemPosition());
+		order.setFeeType(feeType.getSelectedItemPosition() + 1);
 		order.setPrice(Float.parseFloat(playMoney.getText().toString()));
 		order.setMobilePhone(userInfo.getMobilePhone());
 		order.setBitMap(bitMap);
@@ -120,7 +122,7 @@ public class CreateOrderActivity extends Activity {
 			order.setLng(location.getLongitude());
 			order.setLat(location.getLatitude());
 		}
-		TaskProcess.createOrder(this,this, R.id.confirm_neworder, order);
+		task.request("createOrder", 0, R.id.confirm_neworder, order);
 	}
 	@Proc({R.id.confirm_neworder, -R.id.confirm_neworder})
 	void procNewOrder(Message msg){

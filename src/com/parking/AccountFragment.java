@@ -12,7 +12,8 @@ import android.widget.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
-import com.xdlv.vistor.Proc;
+import com.parking.task.AccountTask;
+import com.xdlv.async.task.Proc;
 
 public class AccountFragment extends AbstractFragment {
 
@@ -33,14 +34,17 @@ public class AccountFragment extends AbstractFragment {
 	@ViewInject(R.id.last_month_income)
 	TextView lastMonthIncome;
 
-	User currentUser;
+	User queryUser;
+	private AccountTask task;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = super.onCreateView(inflater, container, savedInstanceState);
-		currentUser = ((MainActivity) getActivity()).currentUser;
-		TaskProcess.queryUserInfo(getActivity(),this,R.layout.accout_layout2,
+		if (task == null){
+			task = new AccountTask(getActivity(), this);
+		}
+		task.request("queryUserInfo", inflaterView ? 0 : 3, R.layout.accout_layout2,
 				((MainActivity) getActivity()).currentUser.getMobilePhone());
 		return view;
 	}
@@ -50,42 +54,70 @@ public class AccountFragment extends AbstractFragment {
 		ViewUtils.inject(this, view);
 		return view;
 	}
+	@Override
+	public void onPause() {
+		super.onPause();
+		task.cancle(R.layout.accout_layout2);
+	}
+	
 	@Proc({R.layout.accout_layout2, -R.layout.accout_layout2})
 	void procQueryUserInfo(Message msg){
 		if (msg.obj instanceof Throwable){
 			Toast.makeText(getActivity(), "获取用户信息失败", Toast.LENGTH_LONG).show();
 			return;
 		}
-		initValue((User)msg.obj);
+		queryUser = (User)msg.obj;
+		initValue();
 	}
 
 	@OnClick(R.id.quite_login)
 	public void quiteLogin(View view) {
-		currentUser.setLogin(false);
-		TaskProcess.quiteLogin(getActivity(), this, R.id.quite_login, currentUser);
+		((MainActivity) getActivity()).currentUser.setLogin(false);
+		task.request("quiteLogin", 0, R.id.quite_login, 
+				((MainActivity) getActivity()).currentUser);
 	}
 
 	@Proc(R.id.quite_login)
 	void procQuiteLogin(Message message) {
 		startActivity(new Intent(getActivity(), LoginActivity.class)
 				.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-
 		getActivity().finish();
 	}
 
-	void initValue(User user) {
-		userName.setText(user.getUserName());
-		authroizedName.setText(user.getAuthorizedName());
+	void initValue() {
+		userName.setText(queryUser.getUserName());
+		authroizedName.setText(queryUser.getAuthorizedName());
 
-		idCard.setText(mask(user.getIdCardNumber(), 4, 4));
-		alipay.setText(user.getAliplay());
-		weiXing.setText(user.getWeiXing());
-		bankCard.setText(mask(user.getBankCard(), 2, 6));
-		todayIncome.setText(user.getTotalForToday() + "");
-		lastMonthIncome.setText(user.getTotalForLastMonth() + "");
+		idCard.setText(mask(queryUser.getIdCardNumber(), 4, 4));
+		alipay.setText(queryUser.getAliplay());
+		weiXing.setText(queryUser.getWeiXing());
+		bankCard.setText(mask(queryUser.getBankCard(), 2, 6));
+		todayIncome.setText(queryUser.getTotalForToday() + "");
+		lastMonthIncome.setText(queryUser.getTotalForLastMonth() + "");
+	}
+	@OnClick(R.id.user_edit)
+	void editUserName(View view){
+		new InputUserNameDialog(getActivity(),queryUser).init(new InputUserNameDialog.CallBack() {
+			@Override
+			public void postExecute() {
+				userName.setText(queryUser.getUserName());
+				idCard.setText(mask(queryUser.getIdCardNumber(), 4, 4));
+			}
+		}).show();
+	}
+	@OnClick(R.id.user_account_edit)
+	void editUserCountName(View view){
+		new InputUserCountDialog(getActivity(),queryUser).init(new InputUserCountDialog.CallBack() {
+			@Override
+			public void postExecute() {
+				alipay.setText(queryUser.getAliplay());
+				weiXing.setText(queryUser.getWeiXing());
+				bankCard.setText(mask(queryUser.getBankCard(), 2, 6));
+			}
+		}).show();
 	}
 
-	String mask(String content, int front, int last) {
+	private String mask(String content, int front, int last) {
 		if (content == null || content.length() < front + last){
 			return "";
 		}

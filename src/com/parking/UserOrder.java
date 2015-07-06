@@ -1,7 +1,6 @@
 package com.parking;
 
 import java.io.Serializable;
-import java.util.Locale;
 
 import android.graphics.Bitmap;
 
@@ -14,8 +13,8 @@ import com.lidroid.xutils.db.annotation.Table;
 public class UserOrder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public static final int PARK_STATUS = 0, LEAVED_STATUS = 1;
-	public static final int FEE_TYPE_DAY = 0, FEE_TYPE_TIME = 1;
+	public static final int PARK_STATUS = 0, LEAVED_STATUS = 2;
+	public static final int FEE_TYPE_DAY = 2, FEE_TYPE_TIME = 1;
 
 	@NoAutoIncrement
 	@Id(column = "orderId")
@@ -51,11 +50,6 @@ public class UserOrder implements Serializable {
 	private double lat;
 
 	private Bitmap bitMap;
-
-	public String getLTime(boolean forNow) {
-		long parkTime = ((forNow ? System.currentTimeMillis() : getLeavedTime()) - getCreateTime()) / (1000 * 60);
-		return String.format(Locale.getDefault(),"%02d:%02d", parkTime / 60, parkTime % 60);
-	}
 
 	public int getOrderId() {
 		return orderId;

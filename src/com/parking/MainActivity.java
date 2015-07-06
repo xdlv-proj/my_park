@@ -56,4 +56,8 @@ public class MainActivity extends FragmentActivity implements OnTabChangeListene
 	public void onTabChanged(String arg0) {
 		
 	}
+	
+	public String currentPhone(){
+		return currentUser.getMobilePhone();
+	}
 }

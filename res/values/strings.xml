@@ -30,16 +30,21 @@
     <string name="get_validate_code">获取验证码</string>
     <string name="get_validate_code_last">还剩下%d秒</string>
     <string name="user_info">个人信息</string>
-    <string name="user_info_name">姓名：</string>
+    <string name="user_info_name">姓名</string>
+    <string name="user_info_name2">姓名：</string>
     <string name="authroizedName">管理员认证</string>
     <string name="user_name_ex">吕晓冬</string>
     <string name="authroizedName_ex">北京市占道停车收费员</string>
     <string name="id_card">身份证号</string>
+    <string name="id_card2">身份证号：</string>
     <string name="id_card_ex">340321********4058</string>
     <string name="bind_play_type">己绑定的收费方式：</string>
     <string name="aliplay">支付宝</string>
     <string name="wei_xing">微信</string>
     <string name="bank_card">银行卡</string>
+    <string name="aliplay2">支付宝：</string>
+    <string name="wei_xing2">微信：</string>
+    <string name="bank_card2">银行卡：</string>
     <string name="bank_card_ex">工行340321***4058</string>
     <string name="total_order_income">今日订单收入：</string>
     <string name="money_yuan_ex">20元</string>
@@ -49,5 +54,11 @@
     <string name="car_num">车牌号：</string>
     <string name="today_all_count">今日己收入</string>
     <string name="car_number_pre">"京A "</string>
+    <string name="edit">编辑</string>
+    <string name="fist_time_must">第一次必填</string>
+    <string name="modify">修改</string>
+    <string name="confirm2">确认</string>
+    <string name="create_order">拍照生成订单</string>
+    <string name="total_number">总车位数</string>
 
 </resources>
