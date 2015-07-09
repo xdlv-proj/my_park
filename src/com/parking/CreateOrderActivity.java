@@ -54,7 +54,7 @@ public class CreateOrderActivity extends Activity {
 	Button createNewOrderButton;
 	
 	private LocationMg locationMg;
-	private CreateOrderTask task = new CreateOrderTask(this, this);
+	private CreateOrderTask task;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +75,10 @@ public class CreateOrderActivity extends Activity {
 		carPic.setImageBitmap(bitMap);
 		timeStamp.setText(new SimpleDateFormat("HH:mm", Locale.getDefault())
 				.format(new Date()));
+		task = new CreateOrderTask(this, this);
 		task.request("getCurrentOrderMax", 0, R.layout.new_order, userInfo.getMobilePhone());
 		locationMg = new LocationMg(this);
+		task.request("reconizeNo", 0, R.id.car_pic_new, intent.getExtras().getString("path"));
 	}
 	
 	@Override
@@ -93,8 +95,17 @@ public class CreateOrderActivity extends Activity {
 		}
 		int max = ((Integer)message.obj) + 1;
 		carNo.setText(String.format("%03d", max));
-		
 	}
+	
+	@Proc({R.id.car_pic_new ,-R.id.car_pic_new})
+	void procReconizeNo(Message message){
+		if (message.obj instanceof Throwable){
+			Toast.makeText(this, "车牌号识别失败，请重新拍照或手动输入", Toast.LENGTH_LONG).show();
+			return;
+		}
+		carNumber.setText((String)message.obj);
+	}
+	
 	@OnClick(R.id.back_neworder)
 	public void onClickBack(View view){
 		finish();

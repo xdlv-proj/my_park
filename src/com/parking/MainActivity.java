@@ -1,5 +1,7 @@
 package com.parking;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.xdlv.async.log.FileLogUtils;
 
 public class MainActivity extends FragmentActivity implements OnTabChangeListener{
 	@ViewInject(android.R.id.tabhost)
@@ -22,7 +25,17 @@ public class MainActivity extends FragmentActivity implements OnTabChangeListene
 
 	private int mImageViewArray[] = { R.drawable.main_tabhost,
 			R.drawable.order_tabhost, R.drawable.account_tabhost };
-	
+	static {
+		FileLogUtils.init("park", "park.txt");
+		
+		final FileLogUtils logger = FileLogUtils.getInstance("UncaughtExceptionHandler");
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+			@Override
+			public void uncaughtException(Thread thread, Throwable e) {
+				logger.e("crash occur:" + thread.getName(), e);
+			}
+		});
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

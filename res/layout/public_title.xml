@@ -11,7 +11,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dip"
         android:contentDescription="@null"
-        android:src="@drawable/back" />
+        android:src="@drawable/back_n" />
 
     <TextView
         android:layout_width="0dip"

@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CapturePicActivity" >
+
+    <com.parking.PreView 
+        android:id="@+id/pre_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    
+    <com.parking.TopView
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/btnShutter"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/camera" />
+
+</RelativeLayout>
