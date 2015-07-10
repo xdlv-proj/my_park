@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.parking.task.BitMapUtil;
 import com.parking.task.CreateOrderTask;
 import com.xdlv.async.task.Proc;
 
@@ -69,7 +70,8 @@ public class CreateOrderActivity extends Activity {
 		feeType.setAdapter(adapter);
 		
 		Intent intent = getIntent();
-		bitMap = (Bitmap)intent.getExtras().get("pic");
+		String path = intent.getExtras().getString("path");
+		bitMap = BitMapUtil.compressImage(path);
 		userInfo = (User)intent.getExtras().get("user");
 		
 		carPic.setImageBitmap(bitMap);
@@ -78,7 +80,8 @@ public class CreateOrderActivity extends Activity {
 		task = new CreateOrderTask(this, this);
 		task.request("getCurrentOrderMax", 0, R.layout.new_order, userInfo.getMobilePhone());
 		locationMg = new LocationMg(this);
-		task.request("reconizeNo", 0, R.id.car_pic_new, intent.getExtras().getString("path"));
+		
+		task.request("reconizeNo", 0, R.id.car_pic_new, path);
 	}
 	
 	@Override

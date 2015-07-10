@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class OrderListAdaptor extends ArrayAdapter<UserOrder> {
 
-	UserOrder[] allData;
+	UserOrder[] allData = new UserOrder[0];
 	int resource;
 	Filter filter;
 	static SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH:mm",

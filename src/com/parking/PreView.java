@@ -1,9 +1,12 @@
 package com.parking;
 
+import java.util.List;
+
 import android.content.Context;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.Size;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -50,6 +53,18 @@ class PreView extends SurfaceView implements SurfaceHolder.Callback {
 		try {
 			Parameters parameters = mCamera.getParameters();
 			parameters.setPreviewSize(w, h);
+			// find the minimum size
+			List<Size> sizes = parameters.getSupportedPictureSizes();
+			Size size = null, tmp;
+			for (int i=0;sizes != null && i<sizes.size();i++){
+				tmp = sizes.get(i);
+				if (size == null || tmp.width * tmp.height < size.width * size.height){
+					size = tmp;
+				}
+			}
+			if (size != null){
+				parameters.setPictureSize(size.width, size.height);
+			}
 			mCamera.startPreview();
 		} catch (Exception e) {
 			Log.e("ERROR", "modify preview size error", e);

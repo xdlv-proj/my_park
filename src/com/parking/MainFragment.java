@@ -2,8 +2,6 @@ package com.parking;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -92,18 +90,15 @@ public class MainFragment extends AbstractFragment {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode != Activity.RESULT_OK) {
-			Toast.makeText(getActivity(), "未成成功生成订单", Toast.LENGTH_LONG).show();
 			return;
 		}
 		
 		if (requestCode == REQUEST_CODE_CAPTURE_CAMEIA) {
-			String path = (String)data.getExtras().get("path");
-			Bitmap carPic = BitmapFactory.decodeFile(path);
+			String path = data.getExtras().getString("path");
+			
 			startActivityForResult(
-					new Intent(getActivity(), CreateOrderActivity.class).putExtra("user", user)
-							.putExtra("pic", carPic).putExtra("path", path), 0xef);
-		} else {
-			Toast.makeText(getActivity(), "其它返回", Toast.LENGTH_LONG).show();
+					new Intent(getActivity(), CreateOrderActivity.class).putExtra("user", user
+							).putExtra("path", path), 0xef);
 		}
 	}
 

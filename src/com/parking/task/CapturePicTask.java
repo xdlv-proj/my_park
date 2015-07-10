@@ -1,6 +1,5 @@
 package com.parking.task;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -27,7 +26,6 @@ public class CapturePicTask extends ParkingmBaseTask {
 		}
 		String strPath = picDir + "/CarNumber.jpg";
 		FileOutputStream outStream = null;
-		ByteArrayOutputStream baos = null;
 		Bitmap bitmap = null,createBitmap = null;
 		try {
 			outStream = new FileOutputStream(strPath);
@@ -38,16 +36,11 @@ public class CapturePicTask extends ParkingmBaseTask {
 			createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
 					bitmap.getHeight(), matrix, true);
 
-			baos = new ByteArrayOutputStream();
-			createBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-			outStream.write(baos.toByteArray());
+			createBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
 			outStream.flush();
 		} finally {
 			if (outStream != null) {
 				outStream.close();
-			}
-			if (baos != null) {
-				baos.close();
 			}
 			if (bitmap != null){
 				bitmap.recycle();
