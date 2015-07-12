@@ -16,13 +16,16 @@ import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.os.Message;
 
-public class OrderTask extends ParkingmBaseTask {
+public class OrderTask extends ParkingmBaseTask{
 
 	public OrderTask(Activity context, Object handler) {
 		super(context, handler);
 	}
 
-	Message getTodayOrder(int code, String phone) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.IOrderTask#getTodayOrder(int, int, java.lang.String)
+	 */
+	public Message getTodayOrder(int delay,int code, String phone) throws Exception {
 		JSONObject ret = getJasonForServer("pmorder/getTodayOrder", new String[][] { { "phone",
 				phone } });
 		DbUtils db = getDbUtils();
@@ -52,9 +55,6 @@ public class OrderTask extends ParkingmBaseTask {
 				if (localRecord != null) {
 					uo.setBitMap(BitmapFactory.decodeByteArray(localRecord.getPicData(), 0,
 							localRecord.getPicData().length));
-					/*if (uo.getLeavedTime() < 1){
-						uo.setLeavedTime(localRecord.getLeavedTime());
-					}*/
 				}
 				orders.add(uo);
 			}

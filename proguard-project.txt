@@ -19,4 +19,27 @@
 #   public *;
 #}
 
--keepclass * extends
+# for xutils viewutils
+-keepclassmembers class * extends android.app.Activity {
+   void *(android.view.View);
+   void *(android.os.Message);
+}
+-keepclassmembers class * extends com.parking.AbstractFragment {
+   void *(android.view.View);
+   void *(android.os.Message);
+}
+-keepclassmembers class * extends android.app.Dialog {
+   void *(android.os.Message);
+}
+
+-keepclassmembers class com.xdlv.async.task.ProxyCommonTask{
+   public void cancle(int);
+}
+-keepclassmembers class * extends com.xdlv.async.task.ProxyCommonTask{
+    *;
+}
+-keepclassmembers class com.xdlv.async.task.ITaskProxy {*;}
+-keepclassmembers class * extends com.xdlv.async.task.ITaskProxy {*;}
+
+-keep class * extends java.lang.annotation.Annotation{*;}
+-keep class com.CarOCR.CarOCREngine{*;}

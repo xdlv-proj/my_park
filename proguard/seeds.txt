@@ -1,0 +1,532 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment: void registerForContextMenu(android.view.View)
+android.support.v4.app.Fragment: void unregisterForContextMenu(android.view.View)
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentActivity: FragmentActivity()
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context)
+android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context,android.util.AttributeSet)
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener)
+android.support.v4.view.ViewPager: int getClientWidth()
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.DrawerLayout: void setScrimColor(int)
+android.support.v4.widget.DrawerLayout: void setDrawerListener(android.support.v4.widget.DrawerLayout$DrawerListener)
+android.support.v4.widget.DrawerLayout: void setDrawerLockMode(int)
+android.support.v4.widget.DrawerLayout$SavedState
+android.support.v4.widget.DrawerLayout$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.widget.SlidingPaneLayout: void setParallaxDistance(int)
+android.support.v4.widget.SlidingPaneLayout: int getParallaxDistance()
+android.support.v4.widget.SlidingPaneLayout: void setSliderFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getSliderFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setCoveredFadeColor(int)
+android.support.v4.widget.SlidingPaneLayout: int getCoveredFadeColor()
+android.support.v4.widget.SlidingPaneLayout: void setPanelSlideListener(android.support.v4.widget.SlidingPaneLayout$PanelSlideListener)
+android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.graphics.drawable.Drawable)
+android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
+android.support.v4.widget.SlidingPaneLayout$SavedState
+android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+com.CarOCR.CarOCREngine
+com.CarOCR.CarOCREngine: void <clinit>()
+com.CarOCR.CarOCREngine: CarOCREngine()
+com.CarOCR.CarOCREngine: void init()
+com.CarOCR.CarOCREngine: void release()
+com.CarOCR.CarOCREngine: int loadDiction(byte[],int)
+com.CarOCR.CarOCREngine: int recogpageFile(java.lang.String,char[])
+com.CarOCR.CarOCREngine: int recogpageFileSpeed(java.lang.String,char[])
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy[] values()
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy valueOf(java.lang.String)
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy[] values()
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy valueOf(java.lang.String)
+com.google.gson.annotations.Expose
+com.google.gson.annotations.Expose: boolean serialize()
+com.google.gson.annotations.Expose: boolean deserialize()
+com.google.gson.annotations.SerializedName
+com.google.gson.annotations.SerializedName: java.lang.String value()
+com.google.gson.annotations.Since
+com.google.gson.annotations.Since: double value()
+com.google.gson.annotations.Until
+com.google.gson.annotations.Until: double value()
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken[] values()
+com.google.gson.stream.JsonToken: com.google.gson.stream.JsonToken valueOf(java.lang.String)
+com.lidroid.xutils.bitmap.callback.BitmapLoadFrom: com.lidroid.xutils.bitmap.callback.BitmapLoadFrom[] values()
+com.lidroid.xutils.bitmap.callback.BitmapLoadFrom: com.lidroid.xutils.bitmap.callback.BitmapLoadFrom valueOf(java.lang.String)
+com.lidroid.xutils.db.annotation.Check
+com.lidroid.xutils.db.annotation.Check: java.lang.String value()
+com.lidroid.xutils.db.annotation.Column
+com.lidroid.xutils.db.annotation.Column: java.lang.String column()
+com.lidroid.xutils.db.annotation.Column: java.lang.String defaultValue()
+com.lidroid.xutils.db.annotation.Finder
+com.lidroid.xutils.db.annotation.Finder: java.lang.String valueColumn()
+com.lidroid.xutils.db.annotation.Finder: java.lang.String targetColumn()
+com.lidroid.xutils.db.annotation.Foreign
+com.lidroid.xutils.db.annotation.Foreign: java.lang.String column()
+com.lidroid.xutils.db.annotation.Foreign: java.lang.String foreign()
+com.lidroid.xutils.db.annotation.Id
+com.lidroid.xutils.db.annotation.Id: java.lang.String column()
+com.lidroid.xutils.db.annotation.NoAutoIncrement
+com.lidroid.xutils.db.annotation.NotNull
+com.lidroid.xutils.db.annotation.Table
+com.lidroid.xutils.db.annotation.Table: java.lang.String name()
+com.lidroid.xutils.db.annotation.Table: java.lang.String execAfterTableCreated()
+com.lidroid.xutils.db.annotation.Transient
+com.lidroid.xutils.db.annotation.Unique
+com.lidroid.xutils.db.sqlite.ColumnDbType: com.lidroid.xutils.db.sqlite.ColumnDbType[] values()
+com.lidroid.xutils.db.sqlite.ColumnDbType: com.lidroid.xutils.db.sqlite.ColumnDbType valueOf(java.lang.String)
+com.lidroid.xutils.http.HttpHandler$State: com.lidroid.xutils.http.HttpHandler$State[] values()
+com.lidroid.xutils.http.HttpHandler$State: com.lidroid.xutils.http.HttpHandler$State valueOf(java.lang.String)
+com.lidroid.xutils.http.client.HttpRequest$HttpMethod: com.lidroid.xutils.http.client.HttpRequest$HttpMethod[] values()
+com.lidroid.xutils.http.client.HttpRequest$HttpMethod: com.lidroid.xutils.http.client.HttpRequest$HttpMethod valueOf(java.lang.String)
+com.lidroid.xutils.http.client.multipart.HttpMultipartMode: com.lidroid.xutils.http.client.multipart.HttpMultipartMode[] values()
+com.lidroid.xutils.http.client.multipart.HttpMultipartMode: com.lidroid.xutils.http.client.multipart.HttpMultipartMode valueOf(java.lang.String)
+com.lidroid.xutils.task.Priority: com.lidroid.xutils.task.Priority[] values()
+com.lidroid.xutils.task.Priority: com.lidroid.xutils.task.Priority valueOf(java.lang.String)
+com.lidroid.xutils.view.ResType: com.lidroid.xutils.view.ResType[] values()
+com.lidroid.xutils.view.ResType: com.lidroid.xutils.view.ResType valueOf(java.lang.String)
+com.lidroid.xutils.view.annotation.ContentView
+com.lidroid.xutils.view.annotation.ContentView: int value()
+com.lidroid.xutils.view.annotation.PreferenceInject
+com.lidroid.xutils.view.annotation.PreferenceInject: java.lang.String value()
+com.lidroid.xutils.view.annotation.ResInject
+com.lidroid.xutils.view.annotation.ResInject: int id()
+com.lidroid.xutils.view.annotation.ResInject: com.lidroid.xutils.view.ResType type()
+com.lidroid.xutils.view.annotation.ViewInject
+com.lidroid.xutils.view.annotation.ViewInject: int value()
+com.lidroid.xutils.view.annotation.ViewInject: int parentId()
+com.lidroid.xutils.view.annotation.event.EventBase
+com.lidroid.xutils.view.annotation.event.EventBase: java.lang.Class listenerType()
+com.lidroid.xutils.view.annotation.event.EventBase: java.lang.String listenerSetter()
+com.lidroid.xutils.view.annotation.event.EventBase: java.lang.String methodName()
+com.lidroid.xutils.view.annotation.event.OnChildClick
+com.lidroid.xutils.view.annotation.event.OnChildClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnChildClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnClick
+com.lidroid.xutils.view.annotation.event.OnClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnCompoundButtonCheckedChange
+com.lidroid.xutils.view.annotation.event.OnCompoundButtonCheckedChange: int[] value()
+com.lidroid.xutils.view.annotation.event.OnCompoundButtonCheckedChange: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnFocusChange
+com.lidroid.xutils.view.annotation.event.OnFocusChange: int[] value()
+com.lidroid.xutils.view.annotation.event.OnFocusChange: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnGroupClick
+com.lidroid.xutils.view.annotation.event.OnGroupClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnGroupClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnGroupCollapse
+com.lidroid.xutils.view.annotation.event.OnGroupCollapse: int[] value()
+com.lidroid.xutils.view.annotation.event.OnGroupCollapse: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnGroupExpand
+com.lidroid.xutils.view.annotation.event.OnGroupExpand: int[] value()
+com.lidroid.xutils.view.annotation.event.OnGroupExpand: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnItemClick
+com.lidroid.xutils.view.annotation.event.OnItemClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnItemClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnItemLongClick
+com.lidroid.xutils.view.annotation.event.OnItemLongClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnItemLongClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnItemSelected
+com.lidroid.xutils.view.annotation.event.OnItemSelected: int[] value()
+com.lidroid.xutils.view.annotation.event.OnItemSelected: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnKey
+com.lidroid.xutils.view.annotation.event.OnKey: int[] value()
+com.lidroid.xutils.view.annotation.event.OnKey: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnLongClick
+com.lidroid.xutils.view.annotation.event.OnLongClick: int[] value()
+com.lidroid.xutils.view.annotation.event.OnLongClick: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnNothingSelected
+com.lidroid.xutils.view.annotation.event.OnNothingSelected: int[] value()
+com.lidroid.xutils.view.annotation.event.OnNothingSelected: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnPreferenceChange
+com.lidroid.xutils.view.annotation.event.OnPreferenceChange: java.lang.String[] value()
+com.lidroid.xutils.view.annotation.event.OnPreferenceClick
+com.lidroid.xutils.view.annotation.event.OnPreferenceClick: java.lang.String[] value()
+com.lidroid.xutils.view.annotation.event.OnProgressChanged
+com.lidroid.xutils.view.annotation.event.OnProgressChanged: int[] value()
+com.lidroid.xutils.view.annotation.event.OnProgressChanged: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnRadioGroupCheckedChange
+com.lidroid.xutils.view.annotation.event.OnRadioGroupCheckedChange: int[] value()
+com.lidroid.xutils.view.annotation.event.OnRadioGroupCheckedChange: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnScroll
+com.lidroid.xutils.view.annotation.event.OnScroll: int[] value()
+com.lidroid.xutils.view.annotation.event.OnScroll: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnScrollStateChanged
+com.lidroid.xutils.view.annotation.event.OnScrollStateChanged: int[] value()
+com.lidroid.xutils.view.annotation.event.OnScrollStateChanged: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnStartTrackingTouch
+com.lidroid.xutils.view.annotation.event.OnStartTrackingTouch: int[] value()
+com.lidroid.xutils.view.annotation.event.OnStartTrackingTouch: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnStopTrackingTouch
+com.lidroid.xutils.view.annotation.event.OnStopTrackingTouch: int[] value()
+com.lidroid.xutils.view.annotation.event.OnStopTrackingTouch: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnTabChange
+com.lidroid.xutils.view.annotation.event.OnTabChange: int[] value()
+com.lidroid.xutils.view.annotation.event.OnTabChange: int[] parentId()
+com.lidroid.xutils.view.annotation.event.OnTouch
+com.lidroid.xutils.view.annotation.event.OnTouch: int[] value()
+com.lidroid.xutils.view.annotation.event.OnTouch: int[] parentId()
+com.parking.AccountFragment: void procQueryUserInfo(android.os.Message)
+com.parking.AccountFragment: void quiteLogin(android.view.View)
+com.parking.AccountFragment: void procQuiteLogin(android.os.Message)
+com.parking.AccountFragment: void editUserName(android.view.View)
+com.parking.AccountFragment: void editUserCountName(android.view.View)
+com.parking.CapturePicActivity
+com.parking.CapturePicActivity: CapturePicActivity()
+com.parking.CapturePicActivity: void captureImage(android.view.View)
+com.parking.CapturePicActivity: void procRawPic(android.os.Message)
+com.parking.CreateOrderActivity
+com.parking.CreateOrderActivity: CreateOrderActivity()
+com.parking.CreateOrderActivity: void procOrderMax(android.os.Message)
+com.parking.CreateOrderActivity: void procReconizeNo(android.os.Message)
+com.parking.CreateOrderActivity: void onClickBack(android.view.View)
+com.parking.CreateOrderActivity: void onClickConfirm(android.view.View)
+com.parking.CreateOrderActivity: void procNewOrder(android.os.Message)
+com.parking.InputMoneyDialog: void procGetTimeAndFee(android.os.Message)
+com.parking.InputMoneyDialog: void procConfirNewOrder(android.os.Message)
+com.parking.InputUserCountDialog: void procConfirNewOrder(android.os.Message)
+com.parking.InputUserNameDialog: void procConfirNewOrder(android.os.Message)
+com.parking.LoginActivity
+com.parking.LoginActivity: LoginActivity()
+com.parking.LoginActivity: void procGetLocalUserInfo(android.os.Message)
+com.parking.LoginActivity: void onLogin(android.view.View)
+com.parking.LoginActivity: void procLogin(android.os.Message)
+com.parking.LoginActivity: void onClickValidateCode(android.view.View)
+com.parking.LoginActivity: void procValidateCode(android.os.Message)
+com.parking.LoginActivity: void procWaitValidateCode(android.os.Message)
+com.parking.MainActivity
+com.parking.MainActivity: MainActivity()
+com.parking.MainFragment: void procIncomeAndTotalNum(android.os.Message)
+com.parking.MainFragment: void onClickOrderCreate(android.view.View)
+com.parking.MainFragment: void procUpdateParkSlotNumber(android.os.Message)
+com.parking.MainFragment: void onLongClickAllCount(android.view.View)
+com.parking.MainFragment: void procEditAllCount(android.os.Message)
+com.parking.OrderFragment: void procOrderList(android.os.Message)
+com.parking.ParkingmBaseTask: java.lang.String host
+com.parking.ParkingmBaseTask: com.lidroid.xutils.HttpUtils httpUtils
+com.parking.ParkingmBaseTask: java.text.SimpleDateFormat sdf
+com.parking.ParkingmBaseTask: void <clinit>()
+com.parking.ParkingmBaseTask: ParkingmBaseTask(android.app.Activity,java.lang.Object)
+com.parking.ParkingmBaseTask: org.json.JSONObject getJasonForServer(java.lang.String,java.lang.String[][])
+com.parking.ParkingmBaseTask: org.json.JSONObject getJasonForServer(java.lang.String,com.lidroid.xutils.http.RequestParams)
+com.parking.ParkingmBaseTask: com.lidroid.xutils.http.RequestParams requestParams(java.lang.String[][])
+com.parking.ParkingmBaseTask: long getTodayStartTime()
+com.parking.ParkingmBaseTask: void assertFlag(org.json.JSONObject,java.lang.String)
+com.parking.ParkingmBaseTask: com.lidroid.xutils.DbUtils getDbUtils()
+com.parking.PlateProc
+com.parking.PlateProc: java.lang.String plateProc(int[],int,int)
+com.parking.PreView
+com.parking.PreView: PreView(android.content.Context,android.util.AttributeSet)
+com.parking.R$color: int TextColorGray
+com.parking.R$color: int account_error
+com.parking.R$color: int account_inactive
+com.parking.R$color: int account_unregistered
+com.parking.R$color: int account_valid
+com.parking.R$color: int back_gray
+com.parking.R$color: int back_gray2
+com.parking.R$color: int black
+com.parking.R$color: int contents_text
+com.parking.R$color: int encode_view
+com.parking.R$color: int gray
+com.parking.R$color: int mainColor
+com.parking.R$color: int possible_result_points
+com.parking.R$color: int red
+com.parking.R$color: int result_image_border
+com.parking.R$color: int result_minor_text
+com.parking.R$color: int result_points
+com.parking.R$color: int result_text
+com.parking.R$color: int result_view
+com.parking.R$color: int status_text
+com.parking.R$color: int status_view
+com.parking.R$color: int transparent
+com.parking.R$color: int viewfinder_frame
+com.parking.R$color: int viewfinder_laser
+com.parking.R$color: int viewfinder_mask
+com.parking.R$color: int white
+com.parking.R$dimen: int activity_horizontal_margin
+com.parking.R$dimen: int activity_vertical_margin
+com.parking.R$drawable: int account_tabhost
+com.parking.R$drawable: int arrow
+com.parking.R$drawable: int back_n
+com.parking.R$drawable: int camera
+com.parking.R$drawable: int edit
+com.parking.R$drawable: int get_noral
+com.parking.R$drawable: int get_select
+com.parking.R$drawable: int ic_launch
+com.parking.R$drawable: int icon
+com.parking.R$drawable: int imagefolder
+com.parking.R$drawable: int login_bkg
+com.parking.R$drawable: int main_tabhost
+com.parking.R$drawable: int order_tabhost
+com.parking.R$drawable: int orderlist_bkg
+com.parking.R$drawable: int orderlist_bkg2
+com.parking.R$drawable: int orderlist_title_bkg
+com.parking.R$drawable: int orderlist_title_bkg2
+com.parking.R$drawable: int orderlist_title_bkg3
+com.parking.R$drawable: int orderlist_title_bkg4
+com.parking.R$drawable: int orderlist_title_bkg5
+com.parking.R$drawable: int orderlist_title_bkg6
+com.parking.R$drawable: int spiner_bkg
+com.parking.R$drawable: int tab_account_normal
+com.parking.R$drawable: int tab_account_selected
+com.parking.R$drawable: int tab_main_normal
+com.parking.R$drawable: int tab_main_selected
+com.parking.R$drawable: int tab_order_normal
+com.parking.R$drawable: int tab_order_selected
+com.parking.R$drawable: int takephoto
+com.parking.R$drawable: int validate_code_button
+com.parking.R$id: int TextView01
+com.parking.R$id: int account_image
+com.parking.R$id: int action_settings
+com.parking.R$id: int alipay
+com.parking.R$id: int aliplay
+com.parking.R$id: int allCount
+com.parking.R$id: int authroized_name
+com.parking.R$id: int back_neworder
+com.parking.R$id: int bank_card
+com.parking.R$id: int btnShutter
+com.parking.R$id: int car_no
+com.parking.R$id: int car_num
+com.parking.R$id: int car_pic
+com.parking.R$id: int car_pic_new
+com.parking.R$id: int car_plate
+com.parking.R$id: int confirm_neworder
+com.parking.R$id: int consume_time
+com.parking.R$id: int content
+com.parking.R$id: int create_order
+com.parking.R$id: int createorder
+com.parking.R$id: int editText1
+com.parking.R$id: int edit_all_count
+com.parking.R$id: int fee_type
+com.parking.R$id: int get_validate_code
+com.parking.R$id: int id_card
+com.parking.R$id: int id_txt_alipay
+com.parking.R$id: int id_txt_bankid
+com.parking.R$id: int id_txt_weixin
+com.parking.R$id: int include1
+com.parking.R$id: int last_month_income
+com.parking.R$id: int login_button
+com.parking.R$id: int main_image
+com.parking.R$id: int mobile_number
+com.parking.R$id: int order_image
+com.parking.R$id: int order_list
+com.parking.R$id: int order_type_0
+com.parking.R$id: int order_type_1
+com.parking.R$id: int order_type_2
+com.parking.R$id: int park_time
+com.parking.R$id: int play_money
+com.parking.R$id: int pre_view
+com.parking.R$id: int price
+com.parking.R$id: int quite_login
+com.parking.R$id: int realtabcontent
+com.parking.R$id: int status_leaved
+com.parking.R$id: int status_park
+com.parking.R$id: int textView1
+com.parking.R$id: int time_neworder
+com.parking.R$id: int today_income
+com.parking.R$id: int todaycash
+com.parking.R$id: int top_view
+com.parking.R$id: int user_account_edit
+com.parking.R$id: int user_edit
+com.parking.R$id: int user_name
+com.parking.R$id: int validate_code
+com.parking.R$id: int wei_xing
+com.parking.R$id: int weixing
+com.parking.R$layout: int accountsetting
+com.parking.R$layout: int accout_layout2
+com.parking.R$layout: int activity_capture_pic
+com.parking.R$layout: int activity_main
+com.parking.R$layout: int activity_main2
+com.parking.R$layout: int input_dialog
+com.parking.R$layout: int input_usercount_dialog
+com.parking.R$layout: int input_username_dialog
+com.parking.R$layout: int login
+com.parking.R$layout: int main_layout
+com.parking.R$layout: int main_layout2
+com.parking.R$layout: int main_title
+com.parking.R$layout: int new_order
+com.parking.R$layout: int order_layout
+com.parking.R$layout: int order_list_item
+com.parking.R$layout: int order_list_item2
+com.parking.R$layout: int public_title
+com.parking.R$layout: int spinner
+com.parking.R$menu: int capture_pic
+com.parking.R$menu: int main
+com.parking.R$string: int action_settings
+com.parking.R$string: int aliplay
+com.parking.R$string: int aliplay2
+com.parking.R$string: int all_orders
+com.parking.R$string: int app_name
+com.parking.R$string: int authroizedName
+com.parking.R$string: int authroizedName_ex
+com.parking.R$string: int bank_card
+com.parking.R$string: int bank_card2
+com.parking.R$string: int bank_card_ex
+com.parking.R$string: int bianhao
+com.parking.R$string: int bind_play_type
+com.parking.R$string: int car_num
+com.parking.R$string: int car_number_pre
+com.parking.R$string: int confirm
+com.parking.R$string: int confirm2
+com.parking.R$string: int create_order
+com.parking.R$string: int edit
+com.parking.R$string: int fee_type
+com.parking.R$string: int fist_time_must
+com.parking.R$string: int get_validate_code
+com.parking.R$string: int get_validate_code_last
+com.parking.R$string: int hello_world
+com.parking.R$string: int hint_phone
+com.parking.R$string: int hint_validate
+com.parking.R$string: int id_card
+com.parking.R$string: int id_card2
+com.parking.R$string: int id_card_ex
+com.parking.R$string: int income
+com.parking.R$string: int last_month_ex
+com.parking.R$string: int last_month_income
+com.parking.R$string: int leaved
+com.parking.R$string: int login
+com.parking.R$string: int mobile_phone
+com.parking.R$string: int modify
+com.parking.R$string: int money_t
+com.parking.R$string: int money_yuan_ex
+com.parking.R$string: int new_order
+com.parking.R$string: int order_list_itme
+com.parking.R$string: int order_type_time
+com.parking.R$string: int park_already
+com.parking.R$string: int park_time
+com.parking.R$string: int park_time_ex
+com.parking.R$string: int park_title_ex
+com.parking.R$string: int plate_ex
+com.parking.R$string: int play_hint_ex
+com.parking.R$string: int price_ex
+com.parking.R$string: int quite_login
+com.parking.R$string: int time_ex
+com.parking.R$string: int title_activity_capture_pic
+com.parking.R$string: int today_all_count
+com.parking.R$string: int total_number
+com.parking.R$string: int total_order_income
+com.parking.R$string: int user_info
+com.parking.R$string: int user_info_name
+com.parking.R$string: int user_info_name2
+com.parking.R$string: int user_name_ex
+com.parking.R$string: int validate_code
+com.parking.R$string: int wei_xing
+com.parking.R$string: int wei_xing2
+com.parking.R$style: int AppBaseTheme
+com.parking.R$style: int AppTheme
+com.parking.R$style: int order_list_selected
+com.parking.R$style: int order_list_selected_mid
+com.parking.R$style: int order_list_unselected
+com.parking.R$style: int order_list_unselected_mid
+com.parking.R$style: int public_title
+com.parking.TopView
+com.parking.TopView: TopView(android.content.Context,android.util.AttributeSet)
+com.parking.task.AccountTask: AccountTask(android.app.Activity,java.lang.Object)
+com.parking.task.AccountTask: android.os.Message queryUserInfo(int,int,java.lang.String)
+com.parking.task.AccountTask: android.os.Message quiteLogin(int,int,com.parking.User)
+com.parking.task.CapturePicTask: CapturePicTask(android.app.Activity,java.lang.Object)
+com.parking.task.CapturePicTask: android.os.Message procRawImage(int,int,byte[])
+com.parking.task.CreateOrderTask: com.CarOCR.CarOCREngine engine
+com.parking.task.CreateOrderTask: com.xdlv.async.log.FileLogUtils logger
+com.parking.task.CreateOrderTask: void <clinit>()
+com.parking.task.CreateOrderTask: CreateOrderTask(android.app.Activity,java.lang.Object)
+com.parking.task.CreateOrderTask: android.os.Message getCurrentOrderMax(int,int,java.lang.String)
+com.parking.task.CreateOrderTask: android.os.Message createOrder(int,int,com.parking.UserOrder)
+com.parking.task.CreateOrderTask: android.os.Message reconizeNo(int,int,java.lang.String)
+com.parking.task.IAccountTask: android.os.Message queryUserInfo(int,int,java.lang.String)
+com.parking.task.IAccountTask: android.os.Message quiteLogin(int,int,com.parking.User)
+com.parking.task.ICapturePicTask: android.os.Message procRawImage(int,int,byte[])
+com.parking.task.ICreateOrderTask: android.os.Message getCurrentOrderMax(int,int,java.lang.String)
+com.parking.task.ICreateOrderTask: android.os.Message createOrder(int,int,com.parking.UserOrder)
+com.parking.task.ICreateOrderTask: android.os.Message reconizeNo(int,int,java.lang.String)
+com.parking.task.IInputDialogTask: android.os.Message updateUserOrderStatus(int,int,com.parking.UserOrder)
+com.parking.task.IInputDialogTask: android.os.Message updateUserAccountName(int,int,com.parking.User)
+com.parking.task.IInputDialogTask: android.os.Message getOrderTimeAndFee(int,int,com.parking.UserOrder)
+com.parking.task.ILoginTask: android.os.Message getLocalUserInfo(int,int)
+com.parking.task.ILoginTask: android.os.Message login(int,int,java.lang.String,java.lang.String)
+com.parking.task.ILoginTask: android.os.Message getValidate(int,int,java.lang.String)
+com.parking.task.ILoginTask: android.os.Message waitValidateCode(int,int,int)
+com.parking.task.IMainTask: android.os.Message getIncomeAndTotalNum(int,int,java.lang.String)
+com.parking.task.IMainTask: android.os.Message applyTotalNum(int,int,java.lang.String,int)
+com.parking.task.IMainTask: android.os.Message updateUserParkSlotNumber(int,int,com.parking.User)
+com.parking.task.IOrderTask: android.os.Message getTodayOrder(int,int,java.lang.String)
+com.parking.task.InputDialogTask: InputDialogTask(android.app.Activity,java.lang.Object)
+com.parking.task.InputDialogTask: android.os.Message updateUserOrderStatus(int,int,com.parking.UserOrder)
+com.parking.task.InputDialogTask: android.os.Message updateUserAccountName(int,int,com.parking.User)
+com.parking.task.InputDialogTask: android.os.Message getOrderTimeAndFee(int,int,com.parking.UserOrder)
+com.parking.task.LoginTask: LoginTask(android.app.Activity,java.lang.Object)
+com.parking.task.LoginTask: android.os.Message getLocalUserInfo(int,int)
+com.parking.task.LoginTask: android.os.Message login(int,int,java.lang.String,java.lang.String)
+com.parking.task.LoginTask: android.os.Message getValidate(int,int,java.lang.String)
+com.parking.task.LoginTask: android.os.Message waitValidateCode(int,int,int)
+com.parking.task.MainTask: MainTask(android.app.Activity,java.lang.Object)
+com.parking.task.MainTask: android.os.Message getIncomeAndTotalNum(int,int,java.lang.String)
+com.parking.task.MainTask: android.os.Message applyTotalNum(int,int,java.lang.String,int)
+com.parking.task.MainTask: android.os.Message updateUserParkSlotNumber(int,int,com.parking.User)
+com.parking.task.OrderTask: OrderTask(android.app.Activity,java.lang.Object)
+com.parking.task.OrderTask: android.os.Message getTodayOrder(int,int,java.lang.String)
+com.xdlv.async.task.AsyncTask$Status: com.xdlv.async.task.AsyncTask$Status[] values()
+com.xdlv.async.task.AsyncTask$Status: com.xdlv.async.task.AsyncTask$Status valueOf(java.lang.String)
+com.xdlv.async.task.ITaskProxy: void cancle(int)
+com.xdlv.async.task.Post
+com.xdlv.async.task.Post: int[] value()
+com.xdlv.async.task.Pre
+com.xdlv.async.task.Pre: int[] value()
+com.xdlv.async.task.Proc
+com.xdlv.async.task.Proc: int[] value()
+com.xdlv.async.task.Prog
+com.xdlv.async.task.Prog: int[] value()
+com.xdlv.async.task.ProxyCommonTask: android.util.SparseArray codeMap
+com.xdlv.async.task.ProxyCommonTask: android.app.Activity context
+com.xdlv.async.task.ProxyCommonTask: java.lang.Object handler
+com.xdlv.async.task.ProxyCommonTask: void <clinit>()
+com.xdlv.async.task.ProxyCommonTask: ProxyCommonTask(android.app.Activity,java.lang.Object)
+com.xdlv.async.task.ProxyCommonTask: java.lang.Object createTaskProxy(java.lang.Class,java.lang.Class,android.app.Activity,java.lang.Object)
+com.xdlv.async.task.ProxyCommonTask: java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])
+com.xdlv.async.task.ProxyCommonTask: void cancle(int)
+com.xdlv.async.task.ProxyCommonTask: android.os.Message obtainMessage(int,java.lang.Object)
+com.xdlv.async.task.ProxyCommonTask: boolean filter(int)
+com.xdlv.async.task.ProxyCommonTask: void preExecute(int)
+com.xdlv.async.task.ProxyCommonTask: void postExecute(int)
+com.xdlv.async.task.Tar
+com.xdlv.async.task.Tar: java.lang.String[] value()

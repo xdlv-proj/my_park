@@ -51,7 +51,10 @@ public class CreateOrderTask extends ParkingmBaseTask {
 		}
 	}
 
-	Message getCurrentOrderMax(int code,String phone) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ICreateOrderTask#getCurrentOrderMax(int, int, java.lang.String)
+	 */
+	public Message getCurrentOrderMax(int dealy,int code,String phone) throws Exception {
 		DbUtils db = getDbUtils();
 		int max = 0;
 		if (db.tableIsExist(UserOrder.class)) {
@@ -68,7 +71,10 @@ public class CreateOrderTask extends ParkingmBaseTask {
 		return obtainMessage(code, max);
 	}
 	
-	Message createOrder(int code,UserOrder order) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ICreateOrderTask#createOrder(int, int, com.parking.UserOrder)
+	 */
+	public Message createOrder(int delay,int code,UserOrder order) throws Exception {
 		// convert picture to byte array
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		order.getBitMap().compress(CompressFormat.PNG, 50, baos);
@@ -91,7 +97,10 @@ public class CreateOrderTask extends ParkingmBaseTask {
 		return obtainMessage(code, null);
 	}
 	
-	Message reconizeNo(int code, String path) throws Exception{
+	/* (non-Javadoc)
+	 * @see com.parking.task.ICreateOrderTask#reconizeNo(int, int, java.lang.String)
+	 */
+	public Message reconizeNo(int delay,int code, String path) throws Exception{
 		char[] resultString = new char[100];
 		engine.recogpageFile(path, resultString);
 		String resultStr = "";

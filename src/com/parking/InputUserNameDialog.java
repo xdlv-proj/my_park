@@ -10,21 +10,23 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parking.task.IInputDialogTask;
 import com.parking.task.InputDialogTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class InputUserNameDialog extends Dialog implements View.OnClickListener{
 
 	User user;
 	CallBack callback;
-	InputDialogTask task;
+	IInputDialogTask task;
 
 	public InputUserNameDialog(Context context, User user) {
 		super(context);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.user = user;
 		setContentView(R.layout.input_username_dialog);
-		task = new InputDialogTask((Activity)context, this);
+		task = ProxyCommonTask.createTaskProxy(InputDialogTask.class, IInputDialogTask.class,(Activity)context, this);
 	}
 
 	public InputUserNameDialog init(CallBack callback) {
@@ -41,7 +43,7 @@ public class InputUserNameDialog extends Dialog implements View.OnClickListener{
 		if (TextUtils.isEmpty(user.getUserName()) || TextUtils.isEmpty(user.getIdCardNumber())){
 			Toast.makeText(getContext(), "请填写正确的信息", Toast.LENGTH_LONG).show();
 		}
-		task.request("updateUserAccountName", 0, R.id.confirm_neworder, user);
+		task.updateUserAccountName(0, R.id.confirm_neworder, user);
 	}
 
 	@Proc(R.id.confirm_neworder)

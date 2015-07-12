@@ -11,28 +11,37 @@ import com.parking.ParkingmBaseTask;
 import com.parking.User;
 import com.parking.UserOrder;
 
-public class InputDialogTask extends ParkingmBaseTask {
+public class InputDialogTask extends ParkingmBaseTask{
 
 	public InputDialogTask(Activity context, Object handler) {
 		super(context, handler);
 	}
 
-	protected Message updateUserOrderStatus(int code, UserOrder uo) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.IInputDialogTask#updateUserOrderStatus(int, int, com.parking.UserOrder)
+	 */
+	public Message updateUserOrderStatus(int delay,int code, UserOrder uo) throws Exception {
 		JSONObject ret = getJasonForServer(
 				"pmorder/collectFee",
 				new String[][] { { "phone", uo.getMobilePhone() },
 						{ "orderid", String.valueOf(uo.getOrderId()) },
 						{ "fee", String.valueOf(uo.getRealPrice()) } });
 		assertFlag(ret, "failed to collect fee");
+		
 		DbUtils db = DbUtils.create(context);
-		uo.setStatus(UserOrder.LEAVED_STATUS);
-		uo.setLeavedTime(System.currentTimeMillis());
-		db.execNonQuery(SqlInfoBuilder.buildUpdateSqlInfo(db, uo, "realPrice", "status",
-				"leavedTime"));
+		if (db.findById(UserOrder.class, uo.getOrderId()) != null){
+			uo.setStatus(UserOrder.LEAVED_STATUS);
+			uo.setLeavedTime(System.currentTimeMillis());
+			db.execNonQuery(SqlInfoBuilder.buildUpdateSqlInfo(db, uo, "realPrice", "status",
+					"leavedTime"));
+		}
 		return obtainMessage(code, null);
 	}
 
-	protected Message updateUserAccountName(int code,User user) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.IInputDialogTask#updateUserAccountName(int, int, com.parking.User)
+	 */
+	public Message updateUserAccountName(int delay,int code,User user) throws Exception {
 		JSONObject ret = getJasonForServer("pmuser/changeUserInfo", new String[][] {
 				{ "phone", user.getMobilePhone() }, 
 				{ "name", user.getUserName() }, 
@@ -48,7 +57,10 @@ public class InputDialogTask extends ParkingmBaseTask {
 		return obtainMessage(code, null);
 	}
 	
-	Message getOrderTimeAndFee(int code, UserOrder uo) throws Exception{
+	/* (non-Javadoc)
+	 * @see com.parking.task.IInputDialogTask#getOrderTimeAndFee(int, int, com.parking.UserOrder)
+	 */
+	public Message getOrderTimeAndFee(int delay,int code, UserOrder uo) throws Exception{
 		JSONObject ret = getJasonForServer("pmorder/getOrderTimeAndFee", new String[][]{
 				{"phone", uo.getMobilePhone()},
 				{"orderid", String.valueOf(uo.getOrderId())}

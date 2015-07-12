@@ -15,8 +15,10 @@ import android.widget.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.parking.task.IMainTask;
 import com.parking.task.MainTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class MainFragment extends AbstractFragment {
 	final int REQUEST_CODE_CAPTURE_CAMEIA = 0xff;
@@ -29,16 +31,16 @@ public class MainFragment extends AbstractFragment {
 	@ViewInject(R.id.edit_all_count)
 	Button editButton;
 
-	MainTask task = null;
+	IMainTask task = null;
 	
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = super.onCreateView(inflater, container, savedInstanceState);
 		user = ((MainActivity) getActivity()).currentUser;
 		if (task == null){
-			task = new MainTask(getActivity(), this);
+			task = ProxyCommonTask.createTaskProxy(MainTask.class, IMainTask.class, getActivity(), this);
 		}
-		task.request("getIncomeAndTotalNum", inflaterView ? 0 : 1, R.layout.main_layout2,
+		task.getIncomeAndTotalNum(inflaterView ? 0 : 1, R.layout.main_layout2,
 				user.getMobilePhone());
 		return view;
 	}
@@ -78,7 +80,7 @@ public class MainFragment extends AbstractFragment {
 	}
 
 	@OnClick(R.id.create_order)
-	void onClickOrderCreate(View v) {
+	public void onClickOrderCreate(View v) {
 		if (allParkCount.getText().toString().length() < 1) {
 			Toast.makeText(getActivity(), "请先填写总车位数", Toast.LENGTH_LONG).show();
 			return;
@@ -117,7 +119,7 @@ public class MainFragment extends AbstractFragment {
 			int parkCount = Integer.parseInt(allParkCount.getText().toString());
 			if (user.getParkSlotNumber() != parkCount) {
 				user.setParkSlotNumber(parkCount);
-				task.request("updateUserParkSlotNumber", 0, R.id.edit_all_count, user);
+				task.updateUserParkSlotNumber(0, R.id.edit_all_count, user);
 			}
 			allParkCount.setEnabled(false);
 			editButton.setText(getString(R.string.modify));

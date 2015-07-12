@@ -9,13 +9,13 @@ import com.lidroid.xutils.DbUtils;
 import com.parking.ParkingmBaseTask;
 import com.parking.User;
 
-public class AccountTask extends ParkingmBaseTask {
+public class AccountTask extends ParkingmBaseTask{
 
 	public AccountTask(Activity context, Object handler) {
 		super(context, handler);
 	}
 
-	protected Message queryUserInfo(int code, String phone) throws Exception {
+	public Message queryUserInfo(int delay,int code, String phone) throws Exception {
 		JSONObject ret = getJasonForServer("pm/getIncome", new String[][] { { "phone", phone } });
 		JSONObject userRet = getJasonForServer("pmuser/getUserInfo", new String[][] { 
 				{ "phone", phone } });
@@ -31,10 +31,11 @@ public class AccountTask extends ParkingmBaseTask {
 		return obtainMessage(code, user);
 	}
 	
-	Message quiteLogin(int code,User user) throws Exception {
+	public Message quiteLogin(int delay,int code,User user) throws Exception {
 		DbUtils db = getDbUtils();
 		db.update(user, "login");
 		return obtainMessage(code, null);
 	}
 
+	
 }

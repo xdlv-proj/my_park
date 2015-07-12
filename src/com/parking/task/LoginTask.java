@@ -10,19 +10,25 @@ import com.lidroid.xutils.db.sqlite.Selector;
 import com.parking.ParkingmBaseTask;
 import com.parking.User;
 
-public class LoginTask extends ParkingmBaseTask {
+public class LoginTask extends ParkingmBaseTask{
 
 	public LoginTask(Activity context, Object handler) {
 		super(context, handler);
 	}
 
-	Message getLocalUserInfo(int code) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ILoginTask#getLocalUserInfo(int, int)
+	 */
+	public Message getLocalUserInfo(int delay,int code) throws Exception {
 		DbUtils db = DbUtils.create(context);
 		User user = db.findFirst(Selector.from(User.class).orderBy("lastLoginTime", true));
 		return obtainMessage(code, user);
 	}
 
-	Message login(int code, String phone, String validateCode) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ILoginTask#login(int, int, java.lang.String, java.lang.String)
+	 */
+	public Message login(int delay,int code, String phone, String validateCode) throws Exception {
 		JSONObject ret = getJasonForServer("pmuser/checkValidateCode", new String[][] { 
 				{ "phone", phone },
 				{ "code", validateCode } });
@@ -40,16 +46,21 @@ public class LoginTask extends ParkingmBaseTask {
 		return obtainMessage(code, user);
 	}
 
-	Message getValidate(int code, String phone) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ILoginTask#getValidate(int, int, java.lang.String)
+	 */
+	public Message getValidate(int delay,int code, String phone) throws Exception {
 		JSONObject ret = getJasonForServer("pmuser/getValidateCode", new String[][] { 
 				{ "phone", phone } });
 		assertFlag(ret, "failed to get validate code");
 		return obtainMessage(code, null);
 	}
 	
-	Message waitValidateCode(int code, int count) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ILoginTask#waitValidateCode(int, int, int)
+	 */
+	public Message waitValidateCode(int delay,int code, int count) throws Exception {
 		Thread.sleep(1000);
 		return obtainMessage(code, count-1);
 	}
-
 }

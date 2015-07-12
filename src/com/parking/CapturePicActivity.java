@@ -13,7 +13,9 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.parking.task.CapturePicTask;
+import com.parking.task.ICapturePicTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class CapturePicActivity extends Activity implements PictureCallback {
 
@@ -24,7 +26,8 @@ public class CapturePicActivity extends Activity implements PictureCallback {
 	TopView topView;
 
 	
-	CapturePicTask task = new CapturePicTask(this, this);
+	ICapturePicTask task = ProxyCommonTask.createTaskProxy(
+			CapturePicTask.class,ICapturePicTask.class, this, this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class CapturePicActivity extends Activity implements PictureCallback {
 
 	@Override
 	public void onPictureTaken(byte[] data, Camera camera) {
-		task.request("procRawImage", 0, R.id.btnShutter,data);
+		task.procRawImage(0, R.id.btnShutter,data);
 		camera.stopPreview();
 	}
 	@Proc({R.id.btnShutter, -R.id.btnShutter})

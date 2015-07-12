@@ -13,7 +13,9 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.parking.task.AccountTask;
+import com.parking.task.IAccountTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class AccountFragment extends AbstractFragment {
 
@@ -35,16 +37,17 @@ public class AccountFragment extends AbstractFragment {
 	TextView lastMonthIncome;
 
 	User queryUser;
-	private AccountTask task;
+	private IAccountTask task;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = super.onCreateView(inflater, container, savedInstanceState);
 		if (task == null){
-			task = new AccountTask(getActivity(), this);
+			task = ProxyCommonTask.createTaskProxy(
+					AccountTask.class,IAccountTask.class, getActivity(), this);
 		}
-		task.request("queryUserInfo", inflaterView ? 0 : 3, R.layout.accout_layout2,
+		task.queryUserInfo(inflaterView ? 0 : 3, R.layout.accout_layout2,
 				((MainActivity) getActivity()).currentUser.getMobilePhone());
 		return view;
 	}
@@ -73,7 +76,7 @@ public class AccountFragment extends AbstractFragment {
 	@OnClick(R.id.quite_login)
 	public void quiteLogin(View view) {
 		((MainActivity) getActivity()).currentUser.setLogin(false);
-		task.request("quiteLogin", 0, R.id.quite_login, 
+		task.quiteLogin(0, R.id.quite_login, 
 				((MainActivity) getActivity()).currentUser);
 	}
 

@@ -14,9 +14,9 @@ import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseStream;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-import com.xdlv.async.task.CommonProcess;
+import com.xdlv.async.task.ProxyCommonTask;
 
-public class ParkingmBaseTask extends CommonProcess {
+public class ParkingmBaseTask extends ProxyCommonTask{
 	static final String host = "http://223.68.191.71:48080/ParkingHere/mobile/";
 	static final HttpUtils httpUtils = new HttpUtils(1000 * 100);
 	static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());

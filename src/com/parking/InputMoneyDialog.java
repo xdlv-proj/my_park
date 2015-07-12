@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.parking.task.IInputDialogTask;
 import com.parking.task.InputDialogTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class InputMoneyDialog extends Dialog implements View.OnClickListener{
 
@@ -24,21 +26,21 @@ public class InputMoneyDialog extends Dialog implements View.OnClickListener{
 	EditText playMoney;
 	
 	CallBack callback;
-	InputDialogTask task;
+	IInputDialogTask task;
 
 	public InputMoneyDialog(Context context, UserOrder uo) {
 		super(context);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.uo = uo;
 		setContentView(R.layout.input_dialog);
-		task = new InputDialogTask((Activity)context, this);
+		task = ProxyCommonTask.createTaskProxy(InputDialogTask.class, IInputDialogTask.class, (Activity)context, this);
 		
 	}
 
 	public InputMoneyDialog init(CallBack callback) {
 		findViewById(R.id.confirm_neworder).setOnClickListener(this);
 		this.callback = callback;
-		task.request("getOrderTimeAndFee", 0, R.layout.input_dialog,uo);
+		task.getOrderTimeAndFee(0, R.layout.input_dialog,uo);
 		return this;
 	}
 	
@@ -66,7 +68,7 @@ public class InputMoneyDialog extends Dialog implements View.OnClickListener{
 			realPrice = Float.parseFloat(playMoney.getText().toString());
 		}
 		uo.setRealPrice(realPrice);
-		task.request("updateUserOrderStatus", 0, R.id.confirm_neworder, uo);
+		task.updateUserOrderStatus(0, R.id.confirm_neworder, uo);
 	}
 
 	@Proc({R.id.confirm_neworder,-R.id.confirm_neworder})

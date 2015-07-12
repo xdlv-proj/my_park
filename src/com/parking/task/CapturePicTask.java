@@ -12,13 +12,16 @@ import android.os.Message;
 
 import com.parking.ParkingmBaseTask;
 
-public class CapturePicTask extends ParkingmBaseTask {
+public class CapturePicTask extends ParkingmBaseTask{
 
 	public CapturePicTask(Activity context, Object handler) {
 		super(context, handler);
 	}
 
-	Message procRawImage(int code, byte[] data) throws Exception {
+	/* (non-Javadoc)
+	 * @see com.parking.task.ICapturePicTask#procRawImage(int, int, byte[])
+	 */
+	public Message procRawImage(int delay,int code, byte[] data) throws Exception {
 		File picDir = Environment.getExternalStorageDirectory();
 		picDir = new File(picDir.getAbsolutePath() + "/park/");
 		if (!picDir.exists() && !picDir.mkdirs()) {

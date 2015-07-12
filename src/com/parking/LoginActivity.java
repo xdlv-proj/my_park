@@ -23,8 +23,10 @@ import android.widget.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.parking.task.ILoginTask;
 import com.parking.task.LoginTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class LoginActivity extends Activity {
 	Uri SMS_URI = Uri.parse("content://sms/");
@@ -41,7 +43,7 @@ public class LoginActivity extends Activity {
 	@ViewInject(R.id.get_validate_code)
 	Button validateCodeButton;
 	
-	LoginTask task = new LoginTask(this, this);
+	ILoginTask task = ProxyCommonTask.createTaskProxy(LoginTask.class, ILoginTask.class, this,this);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.login);
 		ViewUtils.inject(this);
 		
-		task.request("getLocalUserInfo", 0, R.layout.login);
+		task.getLocalUserInfo(0, R.layout.login);
 	}
 	@Proc(R.layout.login)
 	void procGetLocalUserInfo(Message msg) {
@@ -86,7 +88,7 @@ public class LoginActivity extends Activity {
 
 	@OnClick(R.id.login_button)
 	public void onLogin(View view) {
-		task.request("login", 0, R.id.login_button, mobilePhone.getText()
+		task.login(0, R.id.login_button, mobilePhone.getText()
 				.toString(), validateCode.getText().toString());
 		loginButton.setEnabled(false);
 	}
@@ -108,7 +110,7 @@ public class LoginActivity extends Activity {
 	
 	@OnClick(R.id.get_validate_code)
 	public void onClickValidateCode(View view){
-		task.request("getValidate", 0, R.id.get_validate_code, mobilePhone.getText().toString().trim());
+		task.getValidate(0, R.id.get_validate_code, mobilePhone.getText().toString().trim());
 		//TaskProcess.getValidate(this, R.id.get_validate_code, mobilePhone.getText().toString().trim());
 		//registry SMS observer
 	    //getContentResolver().registerContentObserver(SMS_URI, true, smsObserver);
@@ -123,7 +125,7 @@ public class LoginActivity extends Activity {
 		validateCodeButton.setEnabled(false);
 		int start = 60;
 		validateCodeButton.setText(getString(R.string.get_validate_code_last, start));
-		task.request("waitValidateCode", 0, R.id.validate_code, start);
+		task.waitValidateCode(0, R.id.validate_code, start);
 		//UnNetWorkaskProcess.waitValidateCode(this, R.id.validate_code, start);
 	}
 	@Proc({R.id.validate_code})
@@ -134,7 +136,7 @@ public class LoginActivity extends Activity {
 			validateCodeButton.setText(getString(R.string.get_validate_code));
 			//getContentResolver().unregisterContentObserver(smsObserver);
 		} else {
-			task.request("waitValidateCode", 0, R.id.validate_code, count);
+			task.waitValidateCode(0, R.id.validate_code, count);
 			validateCodeButton.setText(getString(R.string.get_validate_code_last, count));
 		}
 	}

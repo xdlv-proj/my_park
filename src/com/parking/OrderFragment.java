@@ -16,8 +16,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.parking.OrderListAdaptor.Filter;
 import com.parking.OrderListAdaptor.StatusListener;
+import com.parking.task.IOrderTask;
 import com.parking.task.OrderTask;
 import com.xdlv.async.task.Proc;
+import com.xdlv.async.task.ProxyCommonTask;
 
 public class OrderFragment extends AbstractFragment{
 
@@ -33,15 +35,15 @@ public class OrderFragment extends AbstractFragment{
 	TextView viewType1;
 	@ViewInject(R.id.order_type_2)
 	TextView viewType2;
-	private OrderTask task = null;
+	private IOrderTask task = null;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = super.onCreateView(inflater, container, savedInstanceState);
 		if (task == null){
-			task = new OrderTask(getActivity(), this);
+			task = ProxyCommonTask.createTaskProxy(OrderTask.class, IOrderTask.class, getActivity(), this);
 		}
-		task.request("getTodayOrder", inflaterView ? 0 : 1,R.layout.order_layout,
+		task.getTodayOrder(inflaterView ? 0 : 1,R.layout.order_layout,
 				((MainActivity) getActivity()).currentUser.getMobilePhone());
 		return view;
 	}
