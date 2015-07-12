@@ -88,7 +88,7 @@ public class OrderFragment extends AbstractFragment{
 	}
 
 	@OnClick({ R.id.order_type_0, R.id.order_type_1, R.id.order_type_2 })
-	public void onClickTitle(TextView view) {
+	public void onClickTitle(View view) {
 		if (currentIndex == view.getId()){
 			return;
 		}
