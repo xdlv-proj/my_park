@@ -26,8 +26,8 @@ public class AccountTask extends ParkingmBaseTask{
 		user.setAliplay(userRet.optString("alipay"));
 		user.setWeiXing(userRet.optString("weixin"));
 		user.setBankCard(userRet.optString("bankcard"));
-		user.setTotalForLastMonth((float) ret.optDouble("monthincome", 0.0));
-		user.setTotalForToday((float) ret.optDouble("todayincome", 0.0));
+		user.setTotalForLastMonth((float) ret.optDouble("lastmonthincome", 0.0));
+		user.setTotalForToday((float) ret.optDouble("monthincome", 0.0));
 		return obtainMessage(code, user);
 	}
 	
@@ -36,6 +36,4 @@ public class AccountTask extends ParkingmBaseTask{
 		db.update(user, "login");
 		return obtainMessage(code, null);
 	}
-
-	
 }

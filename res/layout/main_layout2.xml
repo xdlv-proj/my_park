@@ -1,72 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:orientation="vertical"
-    android:background="#ffdddddd">
+    android:layout_height="match_parent"
+    android:background="#ffdddddd"
+    android:orientation="vertical" >
 
     <include
         android:id="@+id/include1"
         layout="@layout/main_title" />
 
-    <TextView
-            android:id="@+id/create_order"
-            android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:background="@color/white"
+        android:gravity="center"
+        android:paddingBottom="20dip"
+        android:paddingLeft="40dip"
+        android:paddingTop="20dip">
+
+        <ImageView
+            android:id="@+id/take_photo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_order"
-            android:textSize="20sp"
+            android:src="@drawable/takephoto" android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/create_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge" 
-            android:drawableLeft="@drawable/takephoto"
-            android:paddingLeft="60dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            android:gravity="center"
-            android:background="#ffffffff"/>
+            android:background="#ffffffff"
+            android:text="@string/create_order"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dip"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:background="#ffffffff"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
-        android:orientation="horizontal">
-        
+        android:background="#ffffffff"
+        android:orientation="horizontal" >
+
         <TextView
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:text="@string/total_number"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:textSize="20sp"
-            android:textColor="#FFFFFFFF"
             android:background="#00bf71"
-            />
+            android:gravity="center"
+            android:text="@string/total_number"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/allCount"
             android:layout_width="0dip"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:hint="@string/fist_time_must"
-            android:gravity="center"
-            android:inputType="number" 
+            android:layout_weight="1"
             android:background="#ffffffff"
-            android:enabled="true">
+            android:enabled="true"
+            android:gravity="center"
+            android:hint="@string/fist_time_must"
+            android:inputType="number" >
         </EditText>
+
         <Button
             android:id="@+id/edit_all_count"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="@string/modify"
             android:background="@drawable/validate_code_button"
-            android:textColor="@drawable/validate_code_button"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:enabled="true"
             android:paddingLeft="6dip"
             android:paddingRight="6dip"
+            android:text="@string/modify"
+            android:textColor="@drawable/validate_code_button"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dip"
+        android:background="#ffffffff"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="#00bf71"
+            android:gravity="center"
+            android:text="@string/free_count"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/freeCount"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#ffffffff"
+            android:enabled="false"
+            android:textColor="@color/mainColor"
+            android:gravity="center"
+            android:inputType="number" >
+        </EditText>
+        <Button
+            android:id="@+id/refresh_data"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/validate_code_button"
             android:enabled="true"
-            />
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:text="@string/refresh"
+            android:textColor="@drawable/validate_code_button"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

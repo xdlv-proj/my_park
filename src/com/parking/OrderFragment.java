@@ -43,7 +43,7 @@ public class OrderFragment extends AbstractFragment{
 		if (task == null){
 			task = ProxyCommonTask.createTaskProxy(OrderTask.class, IOrderTask.class, getActivity(), this);
 		}
-		task.getTodayOrder(inflaterView ? 0 : 1,R.layout.order_layout,
+		task.getTodayOrder(0,R.layout.order_layout,
 				((MainActivity) getActivity()).currentUser.getMobilePhone());
 		return view;
 	}

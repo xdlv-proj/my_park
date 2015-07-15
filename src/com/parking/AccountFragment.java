@@ -31,7 +31,7 @@ public class AccountFragment extends AbstractFragment {
 	TextView weiXing;
 	@ViewInject(R.id.bank_card)
 	TextView bankCard;
-	@ViewInject(R.id.today_income)
+	@ViewInject(R.id.month_income)
 	TextView todayIncome;
 	@ViewInject(R.id.last_month_income)
 	TextView lastMonthIncome;

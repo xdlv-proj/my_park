@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.parking.task.IInputDialogTask;
 import com.parking.task.InputDialogTask;
 import com.xdlv.async.task.Proc;
@@ -22,7 +21,6 @@ import com.xdlv.async.task.ProxyCommonTask;
 public class InputMoneyDialog extends Dialog implements View.OnClickListener{
 
 	UserOrder uo;
-	@ViewInject(R.id.play_money)
 	EditText playMoney;
 	
 	CallBack callback;
@@ -48,16 +46,20 @@ public class InputMoneyDialog extends Dialog implements View.OnClickListener{
 	void procGetTimeAndFee(Message msg){
 		if (msg.obj instanceof Throwable){
 			Log.e("ERROR", "can not obtian order time and fee");
-		} else {
-			int v[] = (int[]) msg.obj;
-			((TextView) findViewById(R.id.consume_time)).setText(
-					String.format(Locale.getDefault(),"%02d:%02d", (v[0] / 60)/60, (v[0]/60) % 60));
-			(playMoney = ((EditText) findViewById(R.id.play_money))).setHint(
-					String.format(Locale.getDefault(), "  应收 %d 元",
-					v[1]));
-			uo.setPrice(v[1]);
-			uo.setLeavedTime(System.currentTimeMillis() + v[0] * 1000);
+			Toast.makeText(getContext(), "当前网络不给力，无法提交订单", Toast.LENGTH_LONG).show();
+			return;
 		}
+
+		int v[] = (int[]) msg.obj;
+		((TextView) findViewById(R.id.consume_time)).setText(
+				String.format(Locale.getDefault(),"%02d:%02d", (v[0] / 60)/60, (v[0]/60) % 60));
+		(playMoney = ((EditText) findViewById(R.id.play_money))).setHint(
+				String.format(Locale.getDefault(), "  应收 %d 元",
+				v[1]));
+		uo.setPrice(v[1]);
+		uo.setLeavedTime(System.currentTimeMillis() + v[0] * 1000);
+		findViewById(R.id.confirm_neworder).setEnabled(true);
+	
 	}
 
 	public void onClick(View view) {

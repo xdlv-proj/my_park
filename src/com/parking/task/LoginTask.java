@@ -33,6 +33,7 @@ public class LoginTask extends ParkingmBaseTask{
 				{ "phone", phone },
 				{ "code", validateCode } });
 		assertFlag(ret, "failed to check validate code");
+		
 		DbUtils db = getDbUtils();
 		User user = db.findById(User.class, phone);
 		if (user == null) {

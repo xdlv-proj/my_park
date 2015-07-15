@@ -46,7 +46,7 @@ public class TopView extends View {
 	}
 	
 	public Rect rect(int width, int height){
-		return new Rect(width * 1/17, height * 5/14, width * 15/17,height *8 /14);
+		return new Rect(width * 1/17, height * 5/14, width * 16/17,height *8 /14);
 		
 	}
 

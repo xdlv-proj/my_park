@@ -38,6 +38,9 @@ public class User implements Serializable {
 	private boolean login = false;
 	@Column(column="lastLoginTime")
 	private long lastLoginTime;
+	
+	//@Column(column="freeCount")
+	private int freeCount;
 
 	public String getMobilePhone() {
 		return mobilePhone;
@@ -141,6 +144,14 @@ public class User implements Serializable {
 
 	public void setLastLoginTime(long lastLoginTime) {
 		this.lastLoginTime = lastLoginTime;
+	}
+
+	public int getFreeCount() {
+		return freeCount;
+	}
+
+	public void setFreeCount(int freeCount) {
+		this.freeCount = freeCount;
 	}
 	
 }

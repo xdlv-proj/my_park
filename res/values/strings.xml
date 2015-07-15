@@ -46,7 +46,7 @@
     <string name="wei_xing2">微信：</string>
     <string name="bank_card2">银行卡：</string>
     <string name="bank_card_ex">工行340321***4058</string>
-    <string name="total_order_income">今日订单收入：</string>
+    <string name="month_order_income">本月订单收入：</string>
     <string name="money_yuan_ex">20元</string>
     <string name="last_month_income">上月停车收入：</string>
     <string name="last_month_ex">18888.8元</string>
@@ -58,8 +58,10 @@
     <string name="fist_time_must">第一次必填</string>
     <string name="modify">修改</string>
     <string name="confirm2">确认</string>
-    <string name="create_order">拍照生成订单</string>
+    <string name="create_order">生成一个新订单</string>
     <string name="total_number">总车位数</string>
     <string name="title_activity_capture_pic">CapturePicActivity</string>
+    <string name="free_count">剩余车位</string>
+    <string name="refresh">刷新</string>
 
 </resources>

@@ -21,7 +21,7 @@ public class MainTask extends ParkingmBaseTask{
 		JSONObject ret = getJasonForServer("pm/getIncomeAndTotalNum", new String[][] { { "phone",
 				phone } });
 		return obtainMessage(code,
-				new Object[] { ret.optInt("totalnum", 0), ret.optDouble("todayincome", 0.0) });
+				new Object[] { ret.optInt("totalnum", 0), ret.optDouble("todayincome", 0.0),ret.optInt("freenum",1) });
 	}
 
 	/* (non-Javadoc)

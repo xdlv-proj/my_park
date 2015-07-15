@@ -160,7 +160,7 @@
             android:layout_weight="1"
             android:background="#ffffffff"
             android:gravity="center"
-            android:inputType="number" 
+            android:inputType="text" 
             android:text="@string/car_number_pre"
             >
         </EditText>

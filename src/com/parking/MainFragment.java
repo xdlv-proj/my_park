@@ -22,10 +22,13 @@ import com.xdlv.async.task.ProxyCommonTask;
 
 public class MainFragment extends AbstractFragment {
 	final int REQUEST_CODE_CAPTURE_CAMEIA = 0xff;
+	final int REQUEST_CODE_CREATE_ORDER = 0xef;
 
 	User user;
 	@ViewInject(R.id.allCount)
 	EditText allParkCount;
+	@ViewInject(R.id.freeCount)
+	EditText freeCount;
 	@ViewInject(R.id.todaycash)
 	TextView todayCash;
 	@ViewInject(R.id.edit_all_count)
@@ -33,14 +36,13 @@ public class MainFragment extends AbstractFragment {
 
 	IMainTask task = null;
 	
-	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = super.onCreateView(inflater, container, savedInstanceState);
 		user = ((MainActivity) getActivity()).currentUser;
 		if (task == null){
 			task = ProxyCommonTask.createTaskProxy(MainTask.class, IMainTask.class, getActivity(), this);
 		}
-		task.getIncomeAndTotalNum(inflaterView ? 0 : 1, R.layout.main_layout2,
+		task.getIncomeAndTotalNum(0, R.layout.main_layout2,
 				user.getMobilePhone());
 		return view;
 	}
@@ -69,6 +71,7 @@ public class MainFragment extends AbstractFragment {
 
 		user.setParkSlotNumber((Integer) value[0]);
 		user.setTotalForToday(((Double) value[1]).floatValue());
+		user.setFreeCount((Integer) value[2]);
 		int totalNum = (Integer) (((Object[]) msg.obj)[0]);
 		if (totalNum > 0) {
 			allParkCount.setText(user.getParkSlotNumber() + "");
@@ -77,12 +80,23 @@ public class MainFragment extends AbstractFragment {
 			editButton.setText(getString(R.string.confirm2));
 		}
 		todayCash.setText(String.format("%.1f", user.getTotalForToday()));
+		
+		refreshFreeCount();
+	}
+	@OnClick({R.id.refresh_data})
+	public void onClickFresh(View v){
+		task.getIncomeAndTotalNum(0, R.layout.main_layout2,
+				user.getMobilePhone());
 	}
 
-	@OnClick(R.id.create_order)
+	@OnClick({R.id.create_order,R.id.take_photo})
 	public void onClickOrderCreate(View v) {
 		if (allParkCount.getText().toString().length() < 1) {
 			Toast.makeText(getActivity(), "请先填写总车位数", Toast.LENGTH_LONG).show();
+			return;
+		}
+		if (user.getFreeCount() < 1){
+			Toast.makeText(getActivity(), "当前己无空车位", Toast.LENGTH_LONG).show();
 			return;
 		}
 		startActivityForResult(new Intent(getActivity(),CapturePicActivity.class),
@@ -100,8 +114,16 @@ public class MainFragment extends AbstractFragment {
 			
 			startActivityForResult(
 					new Intent(getActivity(), CreateOrderActivity.class).putExtra("user", user
-							).putExtra("path", path), 0xef);
+							).putExtra("path", path), REQUEST_CODE_CREATE_ORDER);
 		}
+		if (requestCode == REQUEST_CODE_CREATE_ORDER){
+			user.setFreeCount(user.getFreeCount() - 1);
+			refreshFreeCount();
+		}
+	}
+	
+	private void refreshFreeCount(){
+		freeCount.setText(String.valueOf(user.getFreeCount()));
 	}
 
 	@Proc(R.id.allCount)
@@ -131,6 +153,8 @@ public class MainFragment extends AbstractFragment {
 			Toast.makeText(getActivity(), "修改失败", Toast.LENGTH_LONG).show();
 		} else {
 			Toast.makeText(getActivity(), "修改成功", Toast.LENGTH_LONG).show();
+			task.getIncomeAndTotalNum(0, R.layout.main_layout2,
+					user.getMobilePhone());
 		}
 	}
 }
